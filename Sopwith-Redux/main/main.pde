@@ -1,4 +1,5 @@
 MainMenu main = new MainMenu();
+Option option = new Option();
 
 // screen booleans
 boolean singlplayer = false;
@@ -8,7 +9,7 @@ boolean mainMenu = true;
 boolean optionMenu = false;
 
 void setup() {
-  size(600, 600); 
+  size(800, 600); 
 }
 
 void draw() {
@@ -16,6 +17,9 @@ void draw() {
   // Main menu screen
   if( mainMenu== true) {
     main.display();  
+  }
+  if(optionMenu == true) {
+    option.display();
   }
   
 }

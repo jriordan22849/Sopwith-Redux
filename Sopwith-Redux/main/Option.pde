@@ -1,5 +1,5 @@
 
-class MainMenu {
+class Option {
   
   int x, y;
   int rect_size = 10;
@@ -17,7 +17,7 @@ class MainMenu {
      background(0); 
      
      // colour below is red.
-     fill(#FF0505);
+     fill(0);
      stroke(#FF0505);
      
      // Display the hame name
@@ -25,7 +25,7 @@ class MainMenu {
      text(gameName,width / 4, height /3.5);
      
      // Display play label
-     fill(#FFFFFF);
+     fill(0);
      rect(centX - 80, 250, 190, 70);
      
      

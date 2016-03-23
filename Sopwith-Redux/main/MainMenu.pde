@@ -14,7 +14,7 @@ class MainMenu {
      
      int twxtciol = #FF0505;
 
-     background(0); 
+     background(#DEDEDE); 
      
      // colour below is red.
      fill(#FF0505);
@@ -22,7 +22,7 @@ class MainMenu {
      
      // Display the hame name
      textSize(50);
-     text(gameName,width / 4, height /3.5);
+     text(gameName,width / 4, height /6);
      
      // Display play label
      fill(#FFFFFF);
@@ -39,8 +39,8 @@ class MainMenu {
       text(playLabel, centX - 40, height / 2);
     }  // end first if() for information box
     
-     if(mousePressed)
-  {
+    if(mousePressed)
+    {
     // choose colour
     // if colour1 is selected 
     if( ( mouseX >= 320) && (mouseX <= 320 + 190) && (mouseY >= 250) && (mouseY <= 250 + 70) )
@@ -49,7 +49,7 @@ class MainMenu {
        optionMenu = true;
     }
   }
-  }
+}
   
 
    

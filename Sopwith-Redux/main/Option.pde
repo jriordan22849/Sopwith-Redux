@@ -26,8 +26,8 @@ void display()
 {
   int boxX = 200;
   int box_size = 40;
-  background(#DEDEDE); 
-  
+  //background(#DEDEDE); 
+  background(bg);
   // colour below is red.
   fill(#FF0505);
   stroke(#FF0505);

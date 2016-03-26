@@ -1,5 +1,5 @@
 class Multi {
  void display() {
-   background(0);
+   background(bg);
  } 
 }

@@ -14,7 +14,7 @@ class MainMenu {
      
      int twxtciol = #FF0505;
 
-     background(#DEDEDE); 
+     background(bg);
      
      // colour below is red.
      fill(#FF0505);

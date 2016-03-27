@@ -60,3 +60,54 @@ void draw() {
   }
   
 }
+
+// Back button in the menu
+void backButton() {
+  fill(#FFFFFF); 
+  stroke(#FFFFFF);
+  rect(50,500,50,50);
+  
+  
+  if( ( mouseX >= 50) && (mouseX <= 100) && (mouseY >= 500) && (mouseY <= 550) )
+  {  
+    fill(#FFFFFF); 
+    stroke(#FF0303);
+    strokeWeight(10);
+    rect(50,500,50,50, 5);
+    strokeWeight(1);
+    stroke(#FFFFFF); 
+  }
+  
+    if(mousePressed)
+    {
+      // Choose plane screen
+      if(singlplayer) {
+        if( ( mouseX >= 50) && (mouseX <= 100) && (mouseY >= 500) && (mouseY <= 550) )
+        {  
+          singlplayer = false;
+          optionMenu = true;
+        
+        }
+      }
+      
+      // how to play screen
+      if(howToPlay) {
+        if( ( mouseX >= 50) && (mouseX <= 100) && (mouseY >= 500) && (mouseY <= 550) )
+        {  
+          howToPlay = false;
+          optionMenu = true;
+        
+        }
+      }
+      
+     // Choose plane screen
+      if(multiplayer) {
+        if( ( mouseX >= 50) && (mouseX <= 100) && (mouseY >= 500) && (mouseY <= 550) )
+        {  
+          multiplayer = false;
+          optionMenu = true;
+        
+        }
+      }
+  }
+}

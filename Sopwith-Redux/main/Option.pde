@@ -123,11 +123,11 @@ void display()
       optionMenu = false;
     }  // end colour change and boolean for first box
   
-    // Second box on menu screen
+    //Second box on menu screen
     if( (mouseX >= (width / 2) - 100) && (mouseX <= (width / 2) - 100 + SBXSize)&& (mouseY >= (height / 2) - 50) && (mouseY <= 300 + SBYSize - 50) )
     {  
-      multiplayer = true;
-      optionMenu = false;
+     multiplayer = true;
+     optionMenu = false;
     }  // end colour change and boolean for first box
   
     // Third box on menu screen

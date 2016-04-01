@@ -4,6 +4,7 @@ Single single = new Single();
 Multi multi = new Multi();
 Controls controls = new Controls();
 Instructions instructions = new Instructions();
+PlayingScreen playing = new PlayingScreen();
 
 PImage bg, oldPlane, modernPlane, tFighter;
 
@@ -13,15 +14,22 @@ boolean multiplayer = false;
 boolean howToPlay = false;
 boolean mainMenu = true;
 boolean optionMenu = false;
+boolean playScreen = false;
 boolean exit = false;
+
+boolean screenShift = false;
+
 
 // plane options for players.
 boolean oldPlaneBoolean = false;
 boolean modernPlaneBoolean = false;
 boolean tFighterBoolean = false;
 
+int start;
+
 void setup() {
   size(800, 600); 
+  start = millis();
   
   // set image variables
   bg = loadImage("background.png");
@@ -32,10 +40,12 @@ void setup() {
 
 void draw() {
   
-  background(bg);
+  background(0);
+
   // Main menu screen
   if( mainMenu== true) {
     main.display();  
+    screenShift = false;
   }
   
   if(optionMenu == true) {
@@ -54,9 +64,13 @@ void draw() {
   if(howToPlay == true) {
     instructions.display();
   }
-  
+    
   if(exit == true) {
    exit(); 
+  }
+  
+  if(playScreen) {
+    playing.display();
   }
   
 }

@@ -36,6 +36,8 @@ boolean mw = false;
 
 int start;
 int x, y;
+int lifes = 3;
+int score = 0;
 
  ArrayList<GameObjects> objects = new ArrayList<GameObjects>();
  ArrayList<Bullet> bullets = new ArrayList<Bullet>();
@@ -194,10 +196,13 @@ void draw() {
         y = (int)random(60,height -50);
         EnemyPlane enemy = new EnemyPlane(x,y);
         planes.add(enemy);
+        score ++;
       } 
     }
   }
-  image(life,725,20);
+  image(life,30,20);
+  text("X" + lifes,53,33);
+  text(score,30,40);
   }
   
 }

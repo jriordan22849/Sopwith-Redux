@@ -7,7 +7,7 @@ Instructions instructions = new Instructions();
 PlayingScreen playing = new PlayingScreen();
 Player player  =new Player();
 
-PImage bg, bg2, bg3, oldPlane, modernPlane, spaceShip, spaceShipSmall, playGameButton, playGameButton2, singlePlayerButton, singlePlayerButton2,
+PImage bg, bg2, bg3, oldPlane, oldPlaneSmall, modernPlane, modernPlaneSmall, spaceShip, spaceShipSmall, playGameButton, playGameButton2, singlePlayerButton, singlePlayerButton2,
 multiplayerButton, multiplayerButton2, exitGameButton, exitGameButton2, howToPlayButton, howToPlayButton2, backButton, backButton2, tfighter, mPlane, oPlane;
 
 // screen booleans
@@ -55,7 +55,9 @@ void setup() {
   bg2 = loadImage("images/Background2.png");
   bg3 = loadImage("images/Background3.png");
   oldPlane = loadImage("images/oldplane.png");
+  oldPlaneSmall = loadImage("images/oldplaneSmall.png");
   modernPlane = loadImage("images/modernplane.png");
+  modernPlaneSmall = loadImage("images/modernplaneSmall.png");
   spaceShip = loadImage("images/SpaceShip.png");
   spaceShipSmall = loadImage("images/SpaceShipSmall.png");
   playGameButton = loadImage("images/PlayGameButton.png");

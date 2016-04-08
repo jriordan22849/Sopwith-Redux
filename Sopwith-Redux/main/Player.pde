@@ -21,7 +21,7 @@ class Player extends GameObjects
      translate(position.x,position.y);
      if(ww2 == true)
      {
-       image(oldPlane, 20, 20);
+       image(oldPlaneSmall, 20, 20);
      }
      if(sw == true)
      {
@@ -29,7 +29,7 @@ class Player extends GameObjects
      }
      if(mw == true)
      {
-       image(modernPlane, 20, 20);
+       image(modernPlaneSmall, 20, 20);
      }
      
      popMatrix();

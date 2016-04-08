@@ -25,7 +25,7 @@ class Player extends GameObjects
      }
      if(sw == true)
      {
-       image(spaceShip, 20, 20);
+       image(spaceShipSmall, 20, 20);
      }
      if(mw == true)
      {

@@ -64,16 +64,16 @@ class Player extends GameObjects
         {
           case 'd':
           position.add(forward);//players go right
-            break;
+           break;
           case 'a':
           position.sub(forward);
-            break;
+           break;
           case 'w':
           position.sub(down);
-            break;
+           break;
           case 's':
           position.add(down);
-            break;
+           break;
             case ' ':
             if(alive == true)// creating a bullet
             { 

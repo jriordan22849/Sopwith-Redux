@@ -51,7 +51,7 @@ void setup() {
   start = millis();
   
   // set image variables
-  bg = loadImage("images/Background1.png");
+  bg = loadImage("images/Background11.png");
   bg2 = loadImage("images/Background2.png");
   bg3 = loadImage("images/Background3.png");
   oldPlane = loadImage("images/oldplane.png");

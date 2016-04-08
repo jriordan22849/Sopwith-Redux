@@ -161,17 +161,37 @@ void draw() {
     
 
     for(int i = 0; i < planes.size(); i ++) {
-       planes.get(i).display();
+      planes.get(i).display();
        
-       if(planes.get(i).x < -200) {
-         planes.remove(i);
+      if(planes.get(i).x < -200) {
+        planes.remove(i);
          
-         x = (int)random(width, width + 500);
-         y = (int)random(200,height -50);
-         EnemyPlane enemy = new EnemyPlane(x,y);
-         planes.add(enemy);
-       }
+        x = (int)random(width, width + 500);
+        y = (int)random(60,height -50);
+        EnemyPlane enemy = new EnemyPlane(x,y);
+        planes.add(enemy);
+      }
     }
+    
+   for(int i = 0 ; i < bullets.size()  ; i ++)//hit detection
+  {
+    Bullet bullet = bullets.get(i);
+    println(bullet.position.x);
+    for (int j = 0; j < planes.size() ; j ++)
+    {
+      EnemyPlane zombie1 = planes.get(j);
+      if (dist(bullet.position.x,bullet.position.y,zombie1.x,zombie1.y) <=20)
+      {
+        bullet.explosion();
+        bullet.touched();
+        planes.remove(j);
+        x = (int)random(width, width + 500);
+        y = (int)random(60,height -50);
+        EnemyPlane enemy = new EnemyPlane(x,y);
+        planes.add(enemy);
+      } 
+    }
+  }
   }
   
 }

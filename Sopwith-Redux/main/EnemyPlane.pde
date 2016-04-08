@@ -1,5 +1,7 @@
 class EnemyPlane extends GameObjects {
     int x,y;
+    
+    
     EnemyPlane(int x, int y) {
        this.x = x;
        this.y = y;
@@ -23,7 +25,7 @@ class EnemyPlane extends GameObjects {
     
     void removeObject() {
        if(x < 50) {
-         
+         alive = false;
        }
     }
     

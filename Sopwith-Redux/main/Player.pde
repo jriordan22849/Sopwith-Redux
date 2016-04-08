@@ -56,6 +56,7 @@ class Player extends GameObjects
         
       forward.x = 5;
       down.y = 5;
+      down2.y = 7;
       velocity.y = 2;
       position.add(velocity); 
       if(keyPressed)
@@ -69,7 +70,7 @@ class Player extends GameObjects
           position.sub(forward);
            break;
           case 'w':
-          position.sub(down);
+          position.sub(down2);
            break;
           case 's':
           position.add(down);

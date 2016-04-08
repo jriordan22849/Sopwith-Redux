@@ -1,84 +1,55 @@
 class Single {
   
-  float x, y;
-  
-  String selectPlane = "Choose Plane:";
-  
-  
   void display() {
-    x = width / 3.5;
-    y = height /4;
-    
     // set background image
-    background(bg);
-    
-    // box for title.
-    fill(#FFFFFF);
-    rect(200,105, 400, 50, 5);
-    
-    // text for select plane
-    fill(#FF0505);
-    stroke(#FF0505);
-    textSize(50); 
-    text(selectPlane, x, y);
+    background(bg2);
+    image(backButton, 10, 525);
     
     // display planes for the user to select.
     // old plane 200 x 85
-    image(oldPlane, 50, 300 );
+    image(oldPlane, 40, 300 );
     
     // 79×76
     // tFighter
-    image(tFighter, 350, 300);
+    image(modernPlane, 300, 300);
+    
     
     // 200×70
     //modern plane 
-    image(modernPlane, 550, 300);
+    //(mouseX >= 550) && (mouseX <= 750) && (mouseY >= 300) && (mouseY <= 370) 
+   image(spaceShip, 570, 300);
+   
+   int timer = millis()-start;
+  
+   if(timer > 6000) {
+    bool = !bool;
+   }
+   
+   
+   if(mousePressed)
+  {
+    if(bool) {
+    if( (mouseX >= 550) && (mouseX <= 750) && (mouseY >= 300) && (mouseY <= 370)  )
+    {
+      singlplayer = false;
+      sw =true;
+      playScreen = true;
+    } 
+    if( (mouseX >= 330) && (mouseX <= 450) && (mouseY >= 300) && (mouseY <= 370)  )
+    {
+      singlplayer = false;
+      mw = true;
+      playScreen = true;
+    } 
+    if( (mouseX >= 20) && (mouseX <= 260) && (mouseY >= 300) && (mouseY <= 370)  )
+    {
+      singlplayer = false;
+      ww2 = true;
+      playScreen = true;
+    }// end colour change and boolean for first box
+    }
+  }
     
     backButton();
-    choosePlaneFun();
-    
-    
- } 
- 
- void changeScreens() {
-    singlplayer = !singlplayer;
-    playScreen = !playScreen;
- }
- 
- void choosePlaneFun() {
-   
-  if(mousePressed)
-  {
-    // if the old plane is selected
-    if( (mouseX >= 50) && (mouseX <= 250) && (mouseY >= 300) && (mouseY <= 385) )
-    {
-       oldPlaneBoolean = true;
-       modernPlaneBoolean = false;
-       tFighterBoolean = false;
-       println(oldPlaneBoolean);
-       changeScreens();
-    }  // end colour change and boolean for first box
-  
-    // if the t-fighter is selected
-    if( (mouseX >= 350) && (mouseX <= 429) && (mouseY >= 300) && (mouseY <= 376) )
-    {
-       tFighterBoolean = true;
-       oldPlaneBoolean = false;
-       modernPlaneBoolean = false;
-       println(tFighterBoolean);
-       changeScreens();
-    }  // end colour change and boolean for first box
-    
-    // if the modern plane is selected
-    if( (mouseX >= 550) && (mouseX <= 750) && (mouseY >= 300) && (mouseY <= 370) )
-    {
-       modernPlaneBoolean = true;
-       oldPlaneBoolean = false; 
-       tFighterBoolean = false;
-       println(modernPlaneBoolean);
-       changeScreens();
-    }  // end colour change and boolean for first box
-
-  } 
  } 
 }

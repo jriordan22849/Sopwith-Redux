@@ -79,11 +79,8 @@ void setup() {
   tfighter = loadImage("images/tFighter.png");
   mPlane = loadImage("images/modernplane1.png");
   oPlane = loadImage("images/oldplane1.png");
-<<<<<<< HEAD
-  instructions1 = loadImage("images/instructions4.png");
-=======
+
   instructions4 = loadImage("images/instructions4.png");
->>>>>>> origin/master
   life = loadImage("images/life.PNG");
   walker = loadImage("images/walker.png");
   

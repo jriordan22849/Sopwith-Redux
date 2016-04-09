@@ -21,6 +21,7 @@ boolean playScreen = false;
 boolean exit = false;
 
 boolean screenShift = false;
+boolean fuelTank = true;
 boolean bool = false;
 boolean bombFire = true;
 
@@ -43,6 +44,8 @@ int lifes = 3;
 int score = 0;
 int numOfBases = 5;
 int numOfBombs = 3;
+
+float fuel = 100;
 
  ArrayList<GameObjects> objects = new ArrayList<GameObjects>();
  ArrayList<Bullet> bullets = new ArrayList<Bullet>();
@@ -160,6 +163,8 @@ void draw() {
   }
   
   if(playScreen == true) {
+    
+   
     
     //player.keyPressed();
     
@@ -280,6 +285,8 @@ void draw() {
   // number of bombs
   image(bombSymbol, 80, 20);
   text("X" + numOfBombs,105,33);
+  
+  text("Fuel:" + (int)fuel +"%",150,33);
   }
   
 }

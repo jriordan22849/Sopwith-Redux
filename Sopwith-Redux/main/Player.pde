@@ -50,8 +50,8 @@ class Player extends GameObjects
         if(position.y < 0) {
           position.y = 1;
         }
-        if(position.y > height) {
-          position.y = height - 20;
+        if(position.y > 600) {
+          position.y = 580;
         }
         
       forward.x = 5;
@@ -61,19 +61,29 @@ class Player extends GameObjects
       position.add(velocity); 
       if(keyPressed)
       {
+        if(fuelTank) {
+          if(fuel <= 0) {
+            fuelTank = !fuelTank;
+          }
+          
+        
         switch(key)
         {
           case 'd':
           position.add(forward);//players go right
+          fuel -= .1;
            break;
           case 'a':
           position.sub(forward);
+          fuel -= .1;
            break;
           case 'w':
           position.sub(down2);
+          fuel -= .1;
            break;
           case 's':
           position.add(down);
+          fuel -= .1;
            break;
             case ' ':
             if(alive == true)// creating a bullet
@@ -116,6 +126,7 @@ class Player extends GameObjects
               }
             }
             break;
+        }
         }
       }
     }

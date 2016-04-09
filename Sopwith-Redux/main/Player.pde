@@ -105,6 +105,7 @@ class Player extends GameObjects
               bombs.add(bomb);
               alive =false;
               buletCounter = 0;
+              bombFire = false;
              }
            if(alive == false)//fire rate
             {

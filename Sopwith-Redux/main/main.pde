@@ -8,7 +8,8 @@ PlayingScreen playing = new PlayingScreen();
 Player player  =new Player();
 
 PImage bg, bg2, bg3, oldPlane, oldPlaneSmall, modernPlane, modernPlaneSmall, spaceShip, spaceShipSmall, playGameButton, playGameButton2, singlePlayerButton, singlePlayerButton2,
-multiplayerButton, multiplayerButton2, exitGameButton, exitGameButton2, howToPlayButton, howToPlayButton2, backButton, backButton2, tfighter, mPlane, oPlane, instructions4, life, walker;
+multiplayerButton, multiplayerButton2, exitGameButton, exitGameButton2, howToPlayButton, howToPlayButton2,
+backButton, backButton2, tfighter, mPlane, oPlane, instructions4, life, walker, bombSymbol;
 
 // screen booleans
 boolean singlplayer = false;
@@ -21,6 +22,7 @@ boolean exit = false;
 
 boolean screenShift = false;
 boolean bool = false;
+boolean bombFire = true;
 
 
 // plane options for players.
@@ -40,6 +42,7 @@ int baseX,baseY;
 int lifes = 3;
 int score = 0;
 int numOfBases = 5;
+int numOfBombs = 3;
 
  ArrayList<GameObjects> objects = new ArrayList<GameObjects>();
  ArrayList<Bullet> bullets = new ArrayList<Bullet>();
@@ -82,7 +85,8 @@ void setup() {
   instructions4 = loadImage("images/instructions4.png");
   life = loadImage("images/life.PNG");
   walker = loadImage("images/walker.png");
-  
+  bombSymbol = loadImage("images/bomb.png");
+   
    for( int i = 0 ; i<1; i++)
    {
      Background player = new Background(0,0);
@@ -156,7 +160,7 @@ void draw() {
   
   if(playScreen == true) {
     
-    player.keyPressed();
+    //player.keyPressed();
     
     background(255);
     stroke(255);
@@ -172,7 +176,8 @@ void draw() {
       }
     }
     
-
+  
+ 
     for(int i = 0; i < planes.size(); i ++) {
       planes.get(i).display();
        
@@ -204,20 +209,49 @@ void draw() {
      Bomb bomb = bombs.get(i);
      println(bomb.position.x);
      for(int j = 0 ; j < bases.size(); j ++) {
-       EnemyBases eBase = bases.get(i);
-       if(dist(bomb.position.x, bomb.position.y,eBase.position.x,eBase.position.y) <= 20) {
+       EnemyBases eBase = bases.get(j);
+       if(dist(bomb.position.x, bomb.position.y,eBase.x,eBase.y) <= 100) {
+         eBase.explosion(eBase.x,eBase.y);
          bomb.explosion();
          bomb.touched();
+         bases.remove(j);
+         
+
          score += 2;
        }
-       
      }
    }
+   
+   // bomb for plane
+   for(int i = 0 ; i < bombs.size()  ; i ++)//hit detection
+  {
+    Bomb bomb = bombs.get(i);
+   // println(bullet.position.x);
+    for (int j = 0; j < planes.size() ; j ++)
+    {
+      EnemyPlane zombie1 = planes.get(j);
+      if (dist(bomb.position.x,bomb.position.y,zombie1.x,zombie1.y) <=50)
+      {
+        bomb.explosion();
+        bombs.remove(i);
+        planes.remove(j);
+        
+        // spawn a new plane 
+        x = (int)random(width, width + 500);
+        y = (int)random(60,height - 200);
+        EnemyPlane enemy = new EnemyPlane(x,y);
+        planes.add(enemy);
+        score ++;
+      } 
+      
+
+    }
+  }
     
    for(int i = 0 ; i < bullets.size()  ; i ++)//hit detection
   {
     Bullet bullet = bullets.get(i);
-    println(bullet.position.x);
+   // println(bullet.position.x);
     for (int j = 0; j < planes.size() ; j ++)
     {
       EnemyPlane zombie1 = planes.get(j);
@@ -227,16 +261,24 @@ void draw() {
         bullet.touched();
         planes.remove(j);
         x = (int)random(width, width + 500);
-        y = (int)random(60,height -50);
+        y = (int)random(60,height - 200);
         EnemyPlane enemy = new EnemyPlane(x,y);
         planes.add(enemy);
         score ++;
       } 
     }
   }
+  
+  // number of lives
+  textSize(15);
+
   image(life,30,20);
   text("X" + lifes,53,33);
-  text(score,30,40);
+  text(score,30,45);
+  
+  // number of bombs
+  image(bombSymbol, 80, 20);
+  text("X" + numOfBombs,105,33);
   }
   
 }

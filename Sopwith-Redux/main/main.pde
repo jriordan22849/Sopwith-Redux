@@ -77,7 +77,7 @@ void setup() {
   tfighter = loadImage("images/tFighter.png");
   mPlane = loadImage("images/modernplane1.png");
   oPlane = loadImage("images/oldplane1.png");
-  instructions1 = loadImage("images/instructions1.png");
+  instructions1 = loadImage("images/instructions4.png");
   life = loadImage("images/life.PNG");
   
    for( int i = 0 ; i<1; i++)

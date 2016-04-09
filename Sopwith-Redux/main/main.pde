@@ -8,7 +8,7 @@ PlayingScreen playing = new PlayingScreen();
 Player player  =new Player();
 
 PImage bg, bg2, bg3, oldPlane, oldPlaneSmall, modernPlane, modernPlaneSmall, spaceShip, spaceShipSmall, playGameButton, playGameButton2, singlePlayerButton, singlePlayerButton2,
-multiplayerButton, multiplayerButton2, exitGameButton, exitGameButton2, howToPlayButton, howToPlayButton2, backButton, backButton2, tfighter, mPlane, oPlane, instructions1, life;
+multiplayerButton, multiplayerButton2, exitGameButton, exitGameButton2, howToPlayButton, howToPlayButton2, backButton, backButton2, tfighter, mPlane, oPlane, instructions4, life, walker;
 
 // screen booleans
 boolean singlplayer = false;
@@ -77,8 +77,9 @@ void setup() {
   tfighter = loadImage("images/tFighter.png");
   mPlane = loadImage("images/modernplane1.png");
   oPlane = loadImage("images/oldplane1.png");
-  instructions1 = loadImage("images/instructions1.png");
+  instructions4 = loadImage("images/instructions4.png");
   life = loadImage("images/life.PNG");
+  walker = loadImage("images/walker.png");
   
    for( int i = 0 ; i<1; i++)
    {

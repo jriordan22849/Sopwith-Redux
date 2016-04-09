@@ -3,7 +3,7 @@ class Instructions {
    background(bg3);
    image(backButton, 10, 525);
    image(tfighter,50,50);
-   image(instructions1,10,300);
+   image(instructions4,30,200);
    backButton();
   } 
 }

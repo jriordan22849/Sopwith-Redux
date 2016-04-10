@@ -44,7 +44,7 @@ int x, y;
 int baseX,baseY;
 int lifes = 3;
 int score = 0;
-int numOfBases = 5;
+int numOfBases = 6;
 int numOfBombs = 3;
 
 float fuel = 100;
@@ -209,11 +209,12 @@ void draw() {
        
       if(planes.get(i).x < -200) {
         planes.remove(i);
-         
-        baseX = (int)random(width, width + 500);
-        baseY = 480;
-        EnemyBases base = new EnemyBases(baseX,baseY);
-        bases.add(base);
+        
+        x = (int)random(width, width + 1000);
+        y = (int)random(200,height - 250);
+        EnemyPlane enemy = new EnemyPlane(x,y);
+        planes.add(enemy);
+  
       }
     }
     
@@ -222,25 +223,63 @@ void draw() {
       bases.get(i).display();
       if(bases.get(i).x < -200) {
         bases.remove(i);
-         
-        baseX = (int)random(width, width + 500);
-        baseY = (int)random(60,height -50);
-        EnemyPlane enemy = new EnemyPlane(x,y);
-        planes.add(enemy);
+        baseX = (int)random(width, width + 800);
+        baseY = 480;
+        EnemyBases base = new EnemyBases(baseX,baseY);
+        bases.add(base);
+      }
+      if(i > numOfBases) {
+        bases.remove(i);
+      }
+    }
+    
+    // remove close bases from each other, no overlapping
+    for(int i = 0; i < bases.size(); i ++) {
+      EnemyBases eBase = bases.get(i);
+      for(int j = i + 1; j < bases.size(); j ++) {
+        EnemyBases cBase = bases.get(j);
+        int temp = 0;
+        temp = eBase.x - cBase.x;
+        if(temp < 90) {
+          bases.remove(j);
+          baseX = (int)random(width, width + 800);
+          baseY = 480;
+          EnemyBases base = new EnemyBases(baseX,baseY);
+          bases.add(base);
+        }
+        
       }
     }
     
    // bomb detection
    for(int i = 0; i < bombs.size();i ++) {
      Bomb bomb = bombs.get(i);
-     println(bomb.position.x);
      for(int j = 0 ; j < bases.size(); j ++) {
        EnemyBases eBase = bases.get(j);
-       if(dist(bomb.position.x, bomb.position.y,eBase.x,eBase.y) <= 100) {
+       if(dist(bomb.position.x, bomb.position.y,eBase.x,eBase.y + 100)  <= 100) {
          eBase.explosion(eBase.x,eBase.y);
          bomb.explosion();
          bomb.touched();
          bases.remove(j);
+         
+         baseX = (int)random(width, width + 500);
+         baseY = 480;
+         EnemyBases base = new EnemyBases(baseX,baseY);
+         bases.add(base);
+        
+         score += 2;
+       }
+   
+       if(dist(bomb.position.x, bomb.position.y,eBase.x - 50,eBase.y + 100) <= 100) {
+         eBase.explosion(eBase.x,eBase.y);
+         bomb.explosion();
+         bomb.touched();
+         bases.remove(j);
+         
+         baseX = (int)random(width, width + 500);
+         baseY = 480;
+         EnemyBases base = new EnemyBases(baseX,baseY);
+         bases.add(base);
          
 
          score += 2;

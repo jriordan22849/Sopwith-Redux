@@ -69,8 +69,8 @@ class Single {
     }// end colour change and boolean for first box
     }
     if((mouseX >= 215) && (mouseX <= 585) && (mouseY >= 450) && (mouseY <= 510)) {
-      singlplayer = false;
       if( (sw == true) || (mw == true) || (ww2 == true)) {
+        singlplayer = false;
         playScreen = true;
       }
     }

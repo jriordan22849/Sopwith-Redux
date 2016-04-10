@@ -8,7 +8,7 @@ PlayingScreen playing = new PlayingScreen();
 Player player  =new Player();
 
 PImage bg, bg2, bg3, oldPlane, oldPlaneSmall, modernPlane, modernPlaneSmall, spaceShip, spaceShipSmall, playGameButton, playGameButton2, singlePlayerButton, singlePlayerButton2,
-multiplayerButton, multiplayerButton2, exitGameButton, exitGameButton2, howToPlayButton, howToPlayButton2,
+multiplayerButton, multiplayerButton2, exitGameButton, exitGameButton2, howToPlayButton, howToPlayButton2, goButton, goButton2,
 backButton, backButton2, tfighter, mPlane, oPlane, instructions4, life, walker, bombSymbol, SpaceShipSmallBlue, SpaceShipBlue, instructions5, oldplaneBlue, oldplanebluesmall, 
 modernplanesmallblue, modernplaneblue , modernplane2, gasoline;
 
@@ -75,6 +75,8 @@ void setup() {
   spaceShipSmall = loadImage("images/SpaceShipSmall.png");
   playGameButton = loadImage("images/PlayGameButton.png");
   playGameButton2 = loadImage("images/PlayGameButton2.png");
+  goButton = loadImage("images/GoButton.png");
+  goButton2 = loadImage("images/GoButton2.png");
   singlePlayerButton = loadImage("images/SinglePlayerButton.png");
   singlePlayerButton2 = loadImage("images/SinglePlayerButton2.png");
   multiplayerButton = loadImage("images/MultiplayerButton.png");
@@ -380,7 +382,7 @@ void backButton() {
   
   if( ( mouseX >= 10) && (mouseX <= 225) && (mouseY >= 520) && (mouseY <= 580) )
   {  
-    image(backButton2, 10, 520);
+    image(backButton2, 10, 519);
   }
   
     if(mousePressed)

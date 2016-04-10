@@ -22,7 +22,6 @@ class Single {
    
   
    
-   image(playGameButton, 215, 450);
    
    // players choice
    
@@ -38,7 +37,8 @@ class Single {
      rect(40, 410, 200,10, 5);
    }
  
-   
+  {  
+  }
    
    if(mousePressed)
   {
@@ -68,13 +68,15 @@ class Single {
      // playScreen = true;
     }// end colour change and boolean for first box
     
-    if((mouseX >= 215) && (mouseX <= 585) && (mouseY >= 450) && (mouseY <= 510)) {
+    if(( mouseX >= 415) && (mouseX <= 790) && (mouseY >= 525) && (mouseY <= 580)) {
       if( (sw == true) || (mw == true) || (ww2 == true)) {
         singlplayer = false;
         playScreen = true;
       }
     }
   }
+  
+  
     
     backButton();
  } 

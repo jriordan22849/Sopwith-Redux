@@ -19,36 +19,41 @@ class Single {
     //(mouseX >= 550) && (mouseX <= 750) && (mouseY >= 300) && (mouseY <= 370) 
    image(spaceShip, 570, 300);
    
-   int timer = millis()-start;
   
-   if(timer > 6000) {
-    bool = !bool;
-   }
+   
+   image(playGameButton, 215, 450);
+   
+ 
    
    
    if(mousePressed)
   {
-    if(bool) {
+
     if( (mouseX >= 550) && (mouseX <= 750) && (mouseY >= 300) && (mouseY <= 370)  )
     {
-      singlplayer = false;
+    //  singlplayer = false;
       sw =true;
-      playScreen = true;
+     // playScreen = true;
     } 
     if( (mouseX >= 330) && (mouseX <= 450) && (mouseY >= 300) && (mouseY <= 370)  )
     {
-      singlplayer = false;
+    //  singlplayer = false;
       mw = true;
-      playScreen = true;
+     // playScreen = true;
     } 
     if( (mouseX >= 20) && (mouseX <= 260) && (mouseY >= 300) && (mouseY <= 370)  )
     {
-      singlplayer = false;
+    //  singlplayer = false;
       ww2 = true;
-      playScreen = true;
+     // playScreen = true;
     }// end colour change and boolean for first box
     }
-  }
+    if((mouseX >= 215) && (mouseX <= 585) && (mouseY >= 450) && (mouseY <= 510)) {
+      singlplayer = false;
+      if( (sw == true) || (mw == true) || (ww2 == true)) {
+        playScreen = true;
+      }
+    }
     
     backButton();
  } 

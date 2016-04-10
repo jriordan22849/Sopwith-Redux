@@ -352,6 +352,9 @@ void backButton() {
         {  
           singlplayer = false;
           optionMenu = true;
+          ww2 = false;
+          sw = false;
+          mw = false;
         
         }
       }

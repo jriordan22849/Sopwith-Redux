@@ -22,6 +22,7 @@ class Single {
    
   
    
+   image(goButton, 635, 525);
    
    // players choice
    
@@ -37,7 +38,9 @@ class Single {
      rect(40, 410, 200,10, 5);
    }
  
+   if( ( mouseX >= 635) && (mouseX <= 790) && (mouseY >= 525) && (mouseY <= 580) )
   {  
+    image(goButton2, 635, 523);
   }
    
    if(mousePressed)

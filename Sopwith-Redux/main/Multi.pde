@@ -12,7 +12,8 @@ class Multi {
     // 79×76
     // tFighter
     image(modernPlane, 300, 200);
-    image(modernplaneblue, 300, 350);
+    //image(modernplaneblue, 300, 350);
+    image(modernplane2, 300, 350);
     
     
     // 200×70

@@ -10,7 +10,8 @@ Player player  =new Player();
 PImage bg, bg2, bg3, oldPlane, oldPlaneSmall, modernPlane, modernPlaneSmall, spaceShip, spaceShipSmall, playGameButton, playGameButton2, singlePlayerButton, singlePlayerButton2,
 multiplayerButton, multiplayerButton2, exitGameButton, exitGameButton2, howToPlayButton, howToPlayButton2,
 backButton, backButton2, tfighter, mPlane, oPlane, instructions4, life, walker, bombSymbol, SpaceShipSmallBlue, SpaceShipBlue, instructions5, oldplaneBlue, oldplanebluesmall, 
-modernplanesmallblue, modernplaneblue ,  gasoline;
+modernplanesmallblue, modernplaneblue , modernplane2, gasoline;
+
 
 // screen booleans
 boolean singlplayer = false;
@@ -98,7 +99,9 @@ void setup() {
   oldplanebluesmall = loadImage("images/oldplanebluesmall.png");
   modernplanesmallblue = loadImage("images/modernplanesmallblue.png");
   modernplaneblue = loadImage("images/modernplaneblue.png");
+  modernplane2 = loadImage("images/modernplane2.png");
   gasoline = loadImage("images/Gasoline_tank.png");
+
   
    
    for( int i = 0 ; i<1; i++)
@@ -199,8 +202,8 @@ void draw() {
       }
     }
     
-  
- 
+
+    
     for(int i = 0; i < planes.size(); i ++) {
       planes.get(i).display();
        
@@ -316,9 +319,9 @@ void draw() {
  }
   
   // number of lives
+  textSize(15);
   fill(255,0,0);
   stroke(255,0,0);
-  textSize(15);
 
   image(life,30,20);
   text("X" + lifes,53,33);
@@ -328,7 +331,6 @@ void draw() {
   image(bombSymbol, 80, 20);
   text("X" + numOfBombs,105,33);
   
-
   text("Fuel:" + (int)fuel +"%",150,33);
   }
   

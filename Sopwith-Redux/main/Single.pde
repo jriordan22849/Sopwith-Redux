@@ -67,13 +67,14 @@ class Single {
       ww2 = true;
      // playScreen = true;
     }// end colour change and boolean for first box
-    }
+    
     if((mouseX >= 215) && (mouseX <= 585) && (mouseY >= 450) && (mouseY <= 510)) {
       if( (sw == true) || (mw == true) || (ww2 == true)) {
         singlplayer = false;
         playScreen = true;
       }
     }
+  }
     
     backButton();
  } 

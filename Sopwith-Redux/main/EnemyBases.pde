@@ -10,7 +10,6 @@ class EnemyBases {
   void display() {
     if(sw) {
       image(walker, x -= 2,y);
-      println("walker X: " +x +" Walker Y: " + y);
     } else if(mw) {
       image(walker, x -= 2,y);  
     } else if(ww2) {

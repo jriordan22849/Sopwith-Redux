@@ -49,16 +49,12 @@ void display()
   
   
   // timer for boolean to switch so the mulitplayer screen doesnt open.
-  int timer = millis()-start;
-  
-  if(timer > 4000) {
-    screenShift = !screenShift;
-  }
+ 
   
   
   if(mousePressed)
   {
-    if(screenShift) {
+
     if( (mouseX >= 10) && (mouseX <= 380) && (mouseY >= 300) && (mouseY <= 360) )
     {
       singlplayer = true;
@@ -85,7 +81,6 @@ void display()
       exit = true;
       optionMenu = false;
     }  // end colour change and boolean for first box
-  }
   }
    
 }  // end void function 

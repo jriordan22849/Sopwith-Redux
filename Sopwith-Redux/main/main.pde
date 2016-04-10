@@ -7,11 +7,18 @@ Instructions instructions = new Instructions();
 PlayingScreen playing = new PlayingScreen();
 Player player  =new Player();
 
+<<<<<<< HEAD
 
 PImage bg, bg2, bg3, oldPlane, oldPlaneSmall, modernPlane, modernPlaneSmall, spaceShip, spaceShipSmall, playGameButton, playGameButton2, singlePlayerButton, singlePlayerButton2, 
   multiplayerButton, multiplayerButton2, exitGameButton, exitGameButton2, howToPlayButton, howToPlayButton2, 
   backButton, backButton2, tfighter, mPlane, oPlane, instructions4, life, walker, bombSymbol, SpaceShipSmallBlue, SpaceShipBlue, instructions5, oldplaneBlue, oldplanebluesmall, 
   modernplanesmallblue, modernplaneblue, modernplane2, gasoline, PLAYER1INSTRUCTIONS, PLAYER2INSTRUCTIONS, resume, mute, restart, backtomenu;
+=======
+PImage bg, bg2, bg3, oldPlane, oldPlaneSmall, modernPlane, modernPlaneSmall, spaceShip, spaceShipSmall, playGameButton, playGameButton2, singlePlayerButton, singlePlayerButton2,
+multiplayerButton, multiplayerButton2, exitGameButton, exitGameButton2, howToPlayButton, howToPlayButton2, goButton, goButton2,
+backButton, backButton2, tfighter, mPlane, oPlane, instructions4, life, walker, bombSymbol, SpaceShipSmallBlue, SpaceShipBlue, instructions5, oldplaneBlue, oldplanebluesmall, 
+modernplanesmallblue, modernplaneblue , modernplane2, gasoline;
+>>>>>>> origin/master
 
 
 // screen booleans
@@ -45,7 +52,7 @@ int x, y;
 int baseX, baseY;
 int lifes = 3;
 int score = 0;
-int numOfBases = 5;
+int numOfBases = 6;
 int numOfBombs = 3;
 
 float fuel = 100;
@@ -76,6 +83,8 @@ void setup() {
   spaceShipSmall = loadImage("images/SpaceShipSmall.png");
   playGameButton = loadImage("images/PlayGameButton.png");
   playGameButton2 = loadImage("images/PlayGameButton2.png");
+  goButton = loadImage("images/GoButton.png");
+  goButton2 = loadImage("images/GoButton2.png");
   singlePlayerButton = loadImage("images/SinglePlayerButton.png");
   singlePlayerButton2 = loadImage("images/SinglePlayerButton2.png");
   multiplayerButton = loadImage("images/MultiplayerButton.png");
@@ -214,11 +223,20 @@ void draw() {
 
       if (planes.get(i).x < -200) {
         planes.remove(i);
+<<<<<<< HEAD
 
         baseX = (int)random(width, width + 500);
         baseY = 480;
         EnemyBases base = new EnemyBases(baseX, baseY);
         bases.add(base);
+=======
+        
+        x = (int)random(width, width + 1000);
+        y = (int)random(200,height - 250);
+        EnemyPlane enemy = new EnemyPlane(x,y);
+        planes.add(enemy);
+  
+>>>>>>> origin/master
       }
     }
 
@@ -227,6 +245,7 @@ void draw() {
       bases.get(i).display();
       if (bases.get(i).x < -200) {
         bases.remove(i);
+<<<<<<< HEAD
 
         baseX = (int)random(width, width + 500);
         baseY = (int)random(60, height -50);
@@ -255,6 +274,78 @@ void draw() {
 
     // bomb for plane
     for (int i = 0; i < bombs.size(); i ++)//hit detection
+=======
+        baseX = (int)random(width, width + 800);
+        baseY = 480;
+        EnemyBases base = new EnemyBases(baseX,baseY);
+        bases.add(base);
+      }
+      if(i > numOfBases) {
+        bases.remove(i);
+      }
+    }
+    
+    // remove close bases from each other, no overlapping
+    for(int i = 0; i < bases.size(); i ++) {
+      EnemyBases eBase = bases.get(i);
+      for(int j = i + 1; j < bases.size(); j ++) {
+        EnemyBases cBase = bases.get(j);
+        int temp = 0;
+        temp = eBase.x - cBase.x;
+        if(temp < 90) {
+          bases.remove(j);
+          baseX = (int)random(width, width + 800);
+          baseY = 480;
+          EnemyBases base = new EnemyBases(baseX,baseY);
+          bases.add(base);
+        }
+        
+      }
+    }
+    
+   // bomb detection
+   for(int i = 0; i < bombs.size();i ++) {
+     Bomb bomb = bombs.get(i);
+     for(int j = 0 ; j < bases.size(); j ++) {
+       EnemyBases eBase = bases.get(j);
+       if(dist(bomb.position.x, bomb.position.y,eBase.x,eBase.y + 100)  <= 100) {
+         eBase.explosion(eBase.x,eBase.y);
+         bomb.explosion();
+         bomb.touched();
+         bases.remove(j);
+         
+         baseX = (int)random(width, width + 500);
+         baseY = 480;
+         EnemyBases base = new EnemyBases(baseX,baseY);
+         bases.add(base);
+        
+         score += 2;
+       }
+   
+       if(dist(bomb.position.x, bomb.position.y,eBase.x - 50,eBase.y + 100) <= 100) {
+         eBase.explosion(eBase.x,eBase.y);
+         bomb.explosion();
+         bomb.touched();
+         bases.remove(j);
+         
+         baseX = (int)random(width, width + 500);
+         baseY = 480;
+         EnemyBases base = new EnemyBases(baseX,baseY);
+         bases.add(base);
+         
+
+         score += 2;
+       }
+     }
+   }
+   
+   // bomb for plane
+   for(int i = 0 ; i < bombs.size()  ; i ++)//hit detection
+  {
+    Bomb bomb = bombs.get(i);
+   // println(bullet.position.x);
+    for (int j = 0; j < planes.size() ; j ++)
+>>>>>>> origin/master
     {
       Bomb bomb = bombs.get(i);
       // println(bullet.position.x);
@@ -336,6 +427,36 @@ void draw() {
 
     text("Fuel:" + (int)fuel +"%", 150, 33);
   }
+<<<<<<< HEAD
+=======
+  
+  if(frameCount % 300 == 0)// time intervals
+  {
+   for( int i = 0 ; i<1; i++)
+   {
+     Fuel fuelss = new Fuel();
+     objects.add(fuelss); 
+     fuels.add(fuelss);
+   }
+ }
+  
+  // number of lives
+  textSize(15);
+  fill(255,0,0);
+  stroke(255,0,0);
+
+  image(life,30,20);
+  text("X" + lifes,53,33);
+  text("Score: " + score,30,53);
+  
+  // number of bombs
+  image(bombSymbol, 80, 20);
+  text("X" + numOfBombs,105,33);
+  
+ // text("Fuel:" + (int)fuel +"%",150,33);
+  }
+  
+>>>>>>> origin/master
 }
 
 // Back button in the menu
@@ -343,8 +464,9 @@ void backButton() {
 
   if ( ( mouseX >= 10) && (mouseX <= 225) && (mouseY >= 520) && (mouseY <= 580) )
   {  
-    image(backButton2, 10, 520);
+    image(backButton2, 10, 519);
   }
+<<<<<<< HEAD
 
   if (mousePressed)
   {
@@ -354,6 +476,22 @@ void backButton() {
       {  
         singlplayer = false;
         optionMenu = true;
+=======
+  
+    if(mousePressed)
+    {
+      // Choose plane screen
+      if(singlplayer) {
+        if( ( mouseX >= 10) && (mouseX <= 225) && (mouseY >= 520) && (mouseY <= 580) )
+        {  
+          singlplayer = false;
+          optionMenu = true;
+          ww2 = false;
+          sw = false;
+          mw = false;
+        
+        }
+>>>>>>> origin/master
       }
     }
 

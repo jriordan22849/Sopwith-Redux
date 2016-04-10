@@ -286,6 +286,7 @@ void draw() {
         bullet.explosion();
         bullet.touched();
         planes.remove(j);
+      
         x = (int)random(width, width + 500);
         y = (int)random(60,height - 200);
         EnemyPlane enemy = new EnemyPlane(x,y);

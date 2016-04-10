@@ -26,6 +26,7 @@ class EnemyPlane extends GameObjects {
     void removeObject() {
        if(x < 50) {
          alive = false;
+         
        }
     }
     

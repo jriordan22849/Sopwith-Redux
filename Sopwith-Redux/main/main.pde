@@ -10,7 +10,7 @@ Player player  =new Player();
 PImage bg, bg2, bg3, oldPlane, oldPlaneSmall, modernPlane, modernPlaneSmall, spaceShip, spaceShipSmall, playGameButton, playGameButton2, singlePlayerButton, singlePlayerButton2,
 multiplayerButton, multiplayerButton2, exitGameButton, exitGameButton2, howToPlayButton, howToPlayButton2,
 backButton, backButton2, tfighter, mPlane, oPlane, instructions4, life, walker, bombSymbol, SpaceShipSmallBlue, SpaceShipBlue, instructions5, oldplaneBlue, oldplanebluesmall, 
-modernplanesmallblue, modernplaneblue;
+modernplanesmallblue, modernplaneblue ,  gasoline;
 
 // screen booleans
 boolean singlplayer = false;
@@ -55,6 +55,7 @@ float fuel = 100;
  ArrayList<Background> back = new ArrayList<Background>();
  ArrayList<EnemyPlane> planes = new ArrayList<EnemyPlane>();
  ArrayList<EnemyBases> bases = new ArrayList<EnemyBases>();
+  ArrayList<Fuel> fuels = new ArrayList<Fuel>();
  
 
 void setup() {
@@ -97,19 +98,20 @@ void setup() {
   oldplanebluesmall = loadImage("images/oldplanebluesmall.png");
   modernplanesmallblue = loadImage("images/modernplanesmallblue.png");
   modernplaneblue = loadImage("images/modernplaneblue.png");
+  gasoline = loadImage("images/Gasoline_tank.png");
   
    
    for( int i = 0 ; i<1; i++)
    {
-     Background player = new Background(0,0);
-     objects.add(player);
-     back.add(player); 
+     Background bac = new Background(0,0);
+     objects.add(bac);
+     back.add(bac); 
    }
    for( int i = 0 ; i<1; i++)
    {
-     Background player = new Background(800,0);
-     objects.add(player);
-     back.add(player); 
+     Background bac = new Background(800,0);
+     objects.add(bac);
+     back.add(bac); 
    }
 
   
@@ -187,6 +189,13 @@ void draw() {
       if (! objects.get(i).alive)
       {
         objects.remove(i);//removes objects
+      }
+    }
+    for(int i = 0;i <fuels.size(); i++)//displaying objects
+    {
+      if (! fuels.get(i).alive)
+      {
+        fuels.remove(i);//removes objects
       }
     }
     
@@ -282,6 +291,29 @@ void draw() {
       } 
     }
   }
+  for(int i = 0 ; i < players.size()  ; i ++)//hit detection
+  {
+    Player player = players.get(i);
+    for (int j = 0; j < fuels.size() ; j ++)
+    {
+      Fuel health = fuels.get(j);
+      if (dist(player.position.x+50,player.position.y + 18 ,health.position.x + 12,health.position.y + 22) <= 40)
+      {
+        fuel = 100 ;
+        health.touched();
+      } 
+    }
+  }
+  
+  if(frameCount % 300 == 0)// time intervals
+  {
+   for( int i = 0 ; i<1; i++)
+   {
+     Fuel fuelss = new Fuel();
+     objects.add(fuelss); 
+     fuels.add(fuelss);
+   }
+ }
   
   // number of lives
   fill(255,0,0);

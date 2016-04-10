@@ -4,6 +4,9 @@ class Player extends GameObjects
   boolean alive = true;
   float hand;
   float leg;
+  float duel;
+  float maxduel =100;
+
   
   Player() {
   }
@@ -18,7 +21,13 @@ class Player extends GameObjects
   void display()
   {  
      pushMatrix();
-     translate(position.x,position.y);
+     float healthPercentage;
+     healthPercentage = fuel/maxduel*100;
+     fill(100,100);
+     rect(position.x + 35,position.y +5,30,5);
+     fill(2.55*100-healthPercentage-2.55,255*healthPercentage/100,0);
+     rect(position.x + 35,position.y +5,.3*healthPercentage,4);
+     translate(position.x,position.y);   
      if(ww2 == true)
      {
        image(oldPlaneSmall, 20, 20);
@@ -31,9 +40,10 @@ class Player extends GameObjects
      {
        image(modernPlaneSmall, 20, 20);
      }
-     
      popMatrix();
    }
+   
+   
    
   void move()
   {

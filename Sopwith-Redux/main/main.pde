@@ -284,16 +284,19 @@ void draw() {
   }
   
   // number of lives
+  fill(255,0,0);
+  stroke(255,0,0);
   textSize(15);
 
   image(life,30,20);
   text("X" + lifes,53,33);
-  text(score,30,45);
+  text("Score: " + score,30,53);
   
   // number of bombs
   image(bombSymbol, 80, 20);
   text("X" + numOfBombs,105,33);
   
+
   text("Fuel:" + (int)fuel +"%",150,33);
   }
   

@@ -331,7 +331,7 @@ void draw() {
   image(bombSymbol, 80, 20);
   text("X" + numOfBombs,105,33);
   
-  text("Fuel:" + (int)fuel +"%",150,33);
+ // text("Fuel:" + (int)fuel +"%",150,33);
   }
   
 }

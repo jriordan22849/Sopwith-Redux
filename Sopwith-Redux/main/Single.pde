@@ -3,6 +3,7 @@ class Single {
   void display() {
     // set background image
     background(bg2);
+
     image(backButton, 10, 525);
     
     // display planes for the user to select.
@@ -23,6 +24,19 @@ class Single {
    
    image(playGameButton, 215, 450);
    
+   // players choice
+   
+   fill(#FC0303);
+   stroke(#FC0303);
+   if(sw) {
+      rect(570, 410, 200,10, 5);
+   } 
+   if(mw) {
+     rect(300, 410, 200,10, 5);
+   } 
+   if(ww2) {
+     rect(40, 410, 200,10, 5);
+   }
  
    
    
@@ -32,18 +46,24 @@ class Single {
     if( (mouseX >= 550) && (mouseX <= 750) && (mouseY >= 300) && (mouseY <= 370)  )
     {
     //  singlplayer = false;
+      mw = false;
+      ww2 = false;
       sw =true;
      // playScreen = true;
     } 
     if( (mouseX >= 330) && (mouseX <= 450) && (mouseY >= 300) && (mouseY <= 370)  )
     {
     //  singlplayer = false;
+      sw = false;
+      ww2 = false;
       mw = true;
      // playScreen = true;
     } 
     if( (mouseX >= 20) && (mouseX <= 260) && (mouseY >= 300) && (mouseY <= 370)  )
     {
-    //  singlplayer = false;
+    //  singlplayer = false;\
+      sw = false;
+      mw = false;
       ww2 = true;
      // playScreen = true;
     }// end colour change and boolean for first box
